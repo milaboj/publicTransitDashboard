@@ -20,14 +20,14 @@ Data Sources:
 
 To develop our Smart Dashboard, we will use publicly available data sources from Seattle City GIS and GIS King County. These datasets include transit stop locations, route information, Seattle neighborhood boundaries, and basic demographic data from the census to help contextualize our analysis. This data source is used to highlight the highs and lows of commuting, giving our Seattleites commuters a way to plan transportation accordingly.
 
-King County Bus network:
+King County Bus network: 
 https://gis-kingcounty.opendata.arcgis.com/datasets/4af32639372044f0b3256c8d0e0f40a7_0/explore 
 
-Light Rail:
+Light Rail: 
 ​​https://data-seattlecitygis.opendata.arcgis.com/datasets/light-rail-stations-1/about
 
-Seattle Frequent Transit Service Area:
+Seattle Frequent Transit Service Area: 
 https://data-seattlecitygis.opendata.arcgis.com/datasets/159745030bdc4276b0e9f1b20b23b46b_0/explore?location=47.619346%2C-122.326310%2C11 
 
-Neighborhoods:
+Neighborhoods: 
 https://data-seattlecitygis.opendata.arcgis.com/datasets/b4a142f592e94d39a3bf787f3c112c1d_0/explore?location=47.614610%2C-122.336918%2C11
