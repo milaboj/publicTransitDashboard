@@ -4,6 +4,10 @@ Seattle Public Transit Accessibility Smart Dashboard:
 
 For our project, we will be developing a Smart Dashboard. We would like to utilize the dataset of public services. More specifically, transit and Seattle City GIS. We want to create a map that informs bus stops and light rail stations in Seattle, origin to destination (OD), and measures how close neighborhoods are to transit. We think that a good city requires accessible, efficient, and reliable transit. We want to make sure that while developing our dashboard, we are critically thinking about the production and carefully designing visual stories, interpretation, and contextualizing societal influence on our product.
 
+Smart Dashboard:
+
+For our map projection, we will be using the Web Mercator projection (EPSG:4326), a universally accepted web map visualization. The map zoom mainly focused on the Greater Seattle area, with the ability to zoom in and out. This map is also the standard projection used in Mapbox and is well-suited for our project because it preserves the familiar spatial relationships that commuters and local policymakers would expect when navigating an urban environment like Seattle. By using proportional symbols, we hope to present a visual index of the advantages and disadvantages of the chosen OD.
+
 Features and Functionality:
 
 Key features of our Dash Dashboard will include layer toggling, zoom and pan navigation, and clickable pop-ups displaying information about each transit stop, like legends informing transportation quality. In addition, there will be buffer zones around stops that represent approximate walking distances to these stops. These buffer areas will allow users to visually compare which neighborhoods fall within convenient walking distance to transit. These functions should be achievable within the time constraint of the quarter using a web mapping platform like Mapbox.
