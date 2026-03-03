@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>About | Public Transit in Seattle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web|Oswald" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Titillium Web', sans-serif;
+      background: #212529;
+      color: #f8f9fa;
+      line-height: 1.6;
+    }
+
+    /* Header / Nav */
+    header {
+      background: #343a40;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-family: 'Oswald', sans-serif;
+      font-size: 26px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      color: lightgray;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    nav a.active {
+      color: orange;
+      font-weight: bold;
+    }
+
+    /* Main content */
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 25px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: orange;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #adb5bd;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <h1>Public Transit in Seattle</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="schedule.html">Schedule</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <section>
+      <h2>Project Overview</h2>
+      <p>
+        This project explores public transit accessibility in Seattle by
+        visualizing bus routes, light rail, transit stops, and walking access
+        buffers. The goal is to better understand how transit availability
+        varies across neighborhoods and how walkability affects access.
+      </p>
+    </section>
+
+    <section>
+      <h2>Data Sources</h2>
+      <p>
+        Transit data is sourced from regional open data portals and includes
+        routes, stops, and schedules. Walking buffers represent estimated
+        5, 10, and 15-minute walking distances based on average pedestrian
+        speeds and street networks.
+      </p>
+    </section>
+
+    <section>
+      <h2>How to Use the Map</h2>
+      <p>
+        Use the dashboard controls to toggle transit layers and walking
+        buffers on and off. Comparing different walk times helps illustrate
+        accessibility gaps and areas where transit access may be limited.
+      </p>
+    </section>
+
+    <section>
+      <h2>Why This Matters</h2>
+      <p>
+        Access to reliable public transit is a key equity issue. By visualizing
+        walkable access to transit, this project highlights spatial differences
+        that can inform transportation planning and policy decisions.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 · Public Transit in Seattle
+  </footer>
+
+</body>
+</html>

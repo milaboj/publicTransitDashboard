@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Schedules | Public Transit in Seattle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web|Oswald" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Titillium Web', sans-serif;
+      background: #212529;
+      color: #f8f9fa;
+      line-height: 1.6;
+    }
+
+    /* Header / Navigation */
+    header {
+      background: #343a40;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-family: 'Oswald', sans-serif;
+      font-size: 26px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      color: lightgray;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    nav a.active {
+      color: orange;
+      font-weight: bold;
+    }
+
+    /* Main layout */
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 25px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: orange;
+    }
+
+    /* Schedule cards */
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .schedule-card {
+      background: #343a40;
+      padding: 20px;
+      border-radius: 6px;
+    }
+
+    .schedule-card h3 {
+      margin-top: 0;
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+    }
+
+    .schedule-card p {
+      margin: 6px 0;
+      font-size: 14px;
+      color: #ced4da;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #495057;
+      text-align: left;
+    }
+
+    th {
+      color: #ffc107;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #adb5bd;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <h1>Public Transit in Seattle</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="schedule.html" class="active">Schedule</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- BUS ROUTES -->
+    <section>
+      <h2>Bus Schedules</h2>
+
+      <div class="schedule-grid">
+
+        <div class="schedule-card">
+          <h3>Route 44</h3>
+          <p>Ballard ↔ University District</p>
+
+          <table>
+            <tr>
+              <th>Stop</th>
+              <th>Weekday</th>
+              <th>Weekend</th>
+            </tr>
+            <tr>
+              <td>Ballard Ave</td>
+              <td>6:00 – 22:00</td>
+              <td>7:00 – 21:00</td>
+            </tr>
+            <tr>
+              <td>UW Station</td>
+              <td>6:20 – 22:20</td>
+              <td>7:20 – 21:20</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="schedule-card">
+          <h3>Route 8</h3>
+          <p>Seattle Center ↔ Capitol Hill</p>
+
+          <table>
+            <tr>
+              <th>Stop</th>
+              <th>Weekday</th>
+              <th>Weekend</th>
+            </tr>
+            <tr>
+              <td>Seattle Center</td>
+              <td>5:30 – 23:00</td>
+              <td>6:00 – 22:30</td>
+            </tr>
+            <tr>
+              <td>Capitol Hill</td>
+              <td>5:50 – 23:20</td>
+              <td>6:20 – 22:50</td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LIGHT RAIL -->
+    <section>
+      <h2>Light Rail Schedules</h2>
+
+      <div class="schedule-grid">
+
+        <div class="schedule-card">
+          <h3>Link Light Rail – Line 1</h3>
+          <p>Northgate ↔ Angle Lake</p>
+
+          <table>
+            <tr>
+              <th>Station</th>
+              <th>First Train</th>
+              <th>Last Train</th>
+            </tr>
+            <tr>
+              <td>Northgate</td>
+              <td>5:00 AM</td>
+              <td>12:30 AM</td>
+            </tr>
+            <tr>
+              <td>Downtown Seattle</td>
+              <td>5:15 AM</td>
+              <td>12:45 AM</td>
+            </tr>
+            <tr>
+              <td>Angle Lake</td>
+              <td>5:40 AM</td>
+              <td>1:10 AM</td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 · Public Transit in Seattle
+  </footer>
+
+</body>
+</html>
