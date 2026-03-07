@@ -214,16 +214,45 @@
       minZoom: 2,
       center: [-122.4, 47.6] // starting center
     });
-
-    // declare the coordinated chart as well as other variables.
-    let earthquakeChart = null,
-      magnitude = {},
-      numEarthquakes = 0;
-
-    // create a few constant variables.
-    const grades = [4, 5, 6],
-      colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(1,108,89)'],
-      radii = [5, 15, 20];
+    map.on("load", function () {
+      map.addSource('assets/neighborhoods.geojson', {
+        type: 'geojson',
+        data: 'assets/neighborhoods.geojson'
+      });
+      map.addLayer({
+        id: 'neighborhood-fill',
+        type: 'fill',
+        source: 'assets/neighborhoods.geojson',
+        paint: {
+            'fill-color': '#0080ff',
+            'fill-opacity': 0.2
+        }
+      });
+      map.addLayer({
+        id: 'neighborhood-outline',
+        type: 'line',
+        source: 'assets/neighborhoods.geojson',
+        paint: {
+            'line-color': '#000',
+            'line-width': 2
+        }
+      });
+      map.addLayer({
+        id: 'neighborhood-labels',
+        type: 'symbol',
+        source: 'assets/neighborhoods.geojson',
+        layout: {
+            'text-field': ['get', 'S_HOOD'], 
+            'text-font': ['Open Sans Bold'],
+            'text-size': 12
+        },
+        paint: {
+            'text-color': '#000000',
+            'text-halo-color': '#ffffff',
+            'text-halo-width': 2
+        }
+      });
+    });
   </script>
 </body>
 
