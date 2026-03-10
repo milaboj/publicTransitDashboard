@@ -167,12 +167,12 @@
         <h5>Transit Layers</h5>
 
         <label>
-            <input type="checkbox" id="bus-toggle" checked>
+            <input type="checkbox" id="bus-stops-toggle" checked>
             Bus Stops
         </label><br>
 
         <label>
-            <input type="checkbox" id="rail-toggle" checked>
+            <input type="checkbox" id="rail-stops-toggle" checked>
             Light Rail Stops
         </label><br>
         </div>
@@ -219,6 +219,38 @@
         type: 'geojson',
         data: 'assets/neighborhoods.geojson'
       });
+      map.addSource('bus-stops', {
+          type: 'geojson',
+          data: 'assets/busStops.geojson'
+      });
+
+      map.addSource('rail-stops', {
+          type: 'geojson',
+          data: 'assets/lightRailStops.geojson'
+      });
+      map.addLayer({
+          id: 'bus-stops-layer',
+          type: 'circle',
+          source: 'bus-stops',
+          paint: {
+              'circle-radius': 4,
+              'circle-color': '#4CAF50',
+              'circle-stroke-width': 1,
+              'circle-stroke-color': '#ffffff'
+          }
+      });
+      map.addLayer({
+          id: 'rail-stops-layer',
+          type: 'circle',
+          source: 'rail-stops',
+          paint: {
+              'circle-radius': 6,
+              'circle-color': '#FFC107',
+              'circle-stroke-width': 1,
+              'circle-stroke-color': '#000'
+          }
+      });
+      console.log(map.getLayer('rail-stops-layer'));
       map.addLayer({
         id: 'neighborhood-fill',
         type: 'fill',
@@ -243,6 +275,20 @@
           map.setLayoutProperty('neighborhood-outline', 'visibility', visibility);
           map.setLayoutProperty('neighborhood-labels', 'visibility', visibility);
 
+      });
+      document.getElementById('bus-stops-toggle').addEventListener('change', function (e) {
+          map.setLayoutProperty(
+              'bus-stops-layer',
+              'visibility',
+              e.target.checked ? 'visible' : 'none'
+          );
+      });
+      document.getElementById('rail-stops-toggle').addEventListener('change', function (e) {
+        map.setLayoutProperty(
+            'rail-stops-layer',
+            'visibility',
+            e.target.checked ? 'visible' : 'none'
+        );
       });
       map.on('click', 'neighborhood-fill', function (e) {
           const coordinates = e.lngLat;
