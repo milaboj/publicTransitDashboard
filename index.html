@@ -109,6 +109,7 @@
         color: lightgray;
         text-decoration: none;
     }
+    
 
     .nav-links a:hover {
         color: white;
@@ -159,22 +160,21 @@
     </div>
     <div id="earthquake-chart"></div>
     <div id="layers">
+        <label>
+          <input type="checkbox" id="neighborhood-toggle" checked>
+          Neighborhoods
+        </label>
         <h5>Transit Layers</h5>
 
         <label>
             <input type="checkbox" id="bus-toggle" checked>
-            Bus Routes
+            Bus Stops
         </label><br>
 
         <label>
             <input type="checkbox" id="rail-toggle" checked>
-            Light Rail
+            Light Rail Stops
         </label><br>
-
-        <label>
-            <input type="checkbox" id="stop-toggle" checked>
-            Transit Stops
-        </label>
         </div>
 
         <hr>
@@ -212,26 +212,62 @@
       style: 'mapbox://styles/mapbox/dark-v10',
       zoom: 10.5, // starting zoom
       minZoom: 2,
-      center: [-122.4, 47.6] // starting center
+      center: [-122.4, 47.62] // starting center
     });
     map.on("load", function () {
-      map.addSource('assets/neighborhoods.geojson', {
+      map.addSource('neighborhoods', {
         type: 'geojson',
         data: 'assets/neighborhoods.geojson'
       });
       map.addLayer({
         id: 'neighborhood-fill',
         type: 'fill',
-        source: 'assets/neighborhoods.geojson',
+        source: 'neighborhoods',
         paint: {
             'fill-color': '#0080ff',
             'fill-opacity': 0.2
         }
       });
+      document.getElementById('neighborhood-toggle').addEventListener('change', function (e) {
+          map.setLayoutProperty(
+              'neighborhood-fill',
+              'visibility',
+              e.target.checked ? 'visible' : 'none'
+          );
+      });
+      document.getElementById('neighborhood-toggle').addEventListener('change', function (e) {
+
+          let visibility = e.target.checked ? 'visible' : 'none';
+
+          map.setLayoutProperty('neighborhood-fill', 'visibility', visibility);
+          map.setLayoutProperty('neighborhood-outline', 'visibility', visibility);
+          map.setLayoutProperty('neighborhood-labels', 'visibility', visibility);
+
+      });
+      map.on('click', 'neighborhood-fill', function (e) {
+          const coordinates = e.lngLat;
+
+          const properties = e.features[0].properties;
+
+          const name = properties.S_HOOD;
+
+          new mapboxgl.Popup()
+              .setLngLat(coordinates)
+              .setHTML("<b>Neighborhood:</b> " + name)
+              .addTo(map);
+      });
+      map.on('mouseenter', 'neighborhood-fill', function () {
+      map.getCanvas().style.cursor = 'pointer';
+      });
+
+      map.on('mouseleave', 'neighborhood-fill', function () {
+          map.getCanvas().style.cursor = '';
+      });
+
       map.addLayer({
         id: 'neighborhood-outline',
         type: 'line',
-        source: 'assets/neighborhoods.geojson',
+        source: 'neighborhoods',
         paint: {
             'line-color': '#000',
             'line-width': 2
@@ -240,7 +276,7 @@
       map.addLayer({
         id: 'neighborhood-labels',
         type: 'symbol',
-        source: 'assets/neighborhoods.geojson',
+        source: 'neighborhoods',
         layout: {
             'text-field': ['get', 'S_HOOD'], 
             'text-font': ['Open Sans Bold'],
