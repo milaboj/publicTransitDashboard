@@ -86,7 +86,7 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html" class="active">About</a>
-      <a href="schedule.html">Schedule</a>
+      <!-- <a href="schedule.html">Schedule</a> -->
     </nav>
   </header>
 
@@ -119,7 +119,15 @@
     <section>
       <h2>Data Sources</h2>
       <p>
-        
+        Lightrail:
+        The light rail dataset represents the link light rail stations located throughout Seattle. This dataset includes station names and geographic coordinates, allowing each station to be mapped and analyzed with the dashboard. The key fields in the dataset include the station’s name, operational status, station type, and geographic coordinates (X and Y). These attributes help identify active stations and distinguish them as part of Seattle’s high-capacity transit system. The coordinate fields were used to plot station locations on the Mapbox map, while the station name and status are displayed in interactive pop-ups. The stations also serve as anchor points for generating walking distance buffers that illustrate which neighborhoods fall within accessible distance of light rail service.
+        <br>
+        <br>
+        Transit stop:
+        The transit stop dataset represents King County Metro bus stops located throughout Seattle. This dataset includes stop identifiers, street location information, and geographic coordinates, so each stop can be mapped and analyzed within our dashboard. The key fields in this dataset are the stop ID, service status, bike rack availability, accessibility designation, route list, and geographic coordinates (X and Y). These columns help to identify active transit stops as well as provide information about the amenities and services available at each stop location.
+
+        The coordinate fields were used to plot the bus stop locations on the map, while the stop name, route list, and accessibility attributes are used to display information through interactive pop-ups for users exploring our dashboard. The dataset was cleaned to include only active stops within the Seattle jurisdiction, and unnecessary maintenance fields were removed to focus the information presented on what is important. These stops also are the center point for the walkability buffers that illustrate which areas are within convenient walking distance of public transportation.
+
       </p>
     </section>
 

@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="css/c3.min.css">
   <a href="about.html">About</a>
-  <a href="schedule.html">Schedule</a>
+  <!--<a href="schedule.html">Schedule</a> -->
+  <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
   <style>
     body {
       margin: 0;
@@ -219,6 +220,48 @@
         type: 'geojson',
         data: 'assets/neighborhoods.geojson'
       });
+          fetch('assets/busStops.geojson')
+            .then(res => res.json())
+            .then(data => {
+                const buffer5 = turf.buffer(data, 0.4, {units: 'kilometers'});
+                map.addSource('buffer5', {
+                    type: 'geojson',
+                    data: buffer5
+                });
+                map.addLayer({
+                    id: 'buffer5-layer',
+                    type: 'fill',
+                    source: 'buffer5',
+                    layout: {
+                      visibility: 'none'
+                    },
+                    paint: {
+                        'fill-color': '#00ff00',
+                        'fill-opacity': 0.05
+                    }
+                });
+                // 10-minute buffer
+                const buffer10 = turf.buffer(data, 0.8, {units: 'kilometers'});
+                map.addSource('buffer10', { type: 'geojson', data: buffer10 });
+                map.addLayer({
+                    id: 'buffer10-layer',
+                    type: 'fill',
+                    source: 'buffer10',
+                    layout: { visibility: 'none' },
+                    paint: { 'fill-color': '#ffff00', 'fill-opacity': 0.05 }
+                });
+
+                // 15-minute buffer
+                const buffer15 = turf.buffer(data, 1.0, {units: 'kilometers'});
+                map.addSource('buffer15', { type: 'geojson', data: buffer15 });
+                map.addLayer({
+                    id: 'buffer15-layer',
+                    type: 'fill',
+                    source: 'buffer15',
+                    layout: { visibility: 'none' },
+                    paint: { 'fill-color': '#ff0000', 'fill-opacity': 0.05 }
+                });
+            });
       map.addSource('bus-stops', {
           type: 'geojson',
           data: 'assets/busStops.geojson'
@@ -226,8 +269,9 @@
 
       map.addSource('rail-stops', {
           type: 'geojson',
-          data: 'assets/lightRailStops.geojson'
+          data: '/assets/lightStops2.geojson'
       });
+
       map.addLayer({
           id: 'bus-stops-layer',
           type: 'circle',
@@ -290,16 +334,30 @@
             e.target.checked ? 'visible' : 'none'
         );
       });
+      document.getElementById('walk5-toggle').addEventListener('change', function (e) {
+          map.setLayoutProperty(
+              'buffer5-layer',
+              'visibility',
+              e.target.checked ? 'visible' : 'none'
+          );
+      });
+      document.getElementById('walk10-toggle').addEventListener('change', e => {
+          map.setLayoutProperty('buffer10-layer', 'visibility', e.target.checked ? 'visible' : 'none');
+      });
+      document.getElementById('walk15-toggle').addEventListener('change', e => {
+          map.setLayoutProperty('buffer15-layer', 'visibility', e.target.checked ? 'visible' : 'none');
+      });
       map.on('click', 'neighborhood-fill', function (e) {
           const coordinates = e.lngLat;
 
           const properties = e.features[0].properties;
 
           const name = properties.S_HOOD;
+          const lArea = properties.L_HOOD;
 
           new mapboxgl.Popup()
               .setLngLat(coordinates)
-              .setHTML("<b>Neighborhood:</b> " + name)
+              .setHTML("<b>Neighborhood:</b> " + name + "<br> <b>Larger Area:</b> " + lArea)
               .addTo(map);
       });
       map.on('mouseenter', 'neighborhood-fill', function () {
