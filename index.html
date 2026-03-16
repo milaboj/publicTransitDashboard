@@ -45,7 +45,10 @@
       color: white;
       opacity: 0.3;
     }
-
+    .mapboxgl-ctrl-bottom-left {
+        left: 540px;
+        bottom: 30px;
+    }
 
     #title {
       font-size: 25px;
@@ -189,6 +192,8 @@
       minZoom: 2,
       center: [-122.4, 47.62] // starting center
     });
+    map.addControl(new mapboxgl.ScaleControl({ maxWidth: 150, unit: 'imperial' }), 'bottom-left');
+    map.addControl(new mapboxgl.NavigationControl({ showCompass: true, showZoom: false }), 'bottom-left');
     map.on("load", function () {
       map.addSource('neighborhoods', {
         type: 'geojson',
