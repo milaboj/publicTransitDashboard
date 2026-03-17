@@ -95,57 +95,89 @@
     <section>
       <h2>Project Overview</h2>
       <p>
-        This project explores public transit accessibility in Seattle by
-        visualizing bus routes, light rail, transit stops, and walking access
-        buffers. The goal is to better understand how transit availability
-        varies across neighborhoods and how walkability affects access. 
-        The Seattle Public Transit Accessibility Dashboard explores how 
-        accessible public transportation is across Seattle neighborhoods. 
-        Using datasets from Seattle City GIS and King County Metro, the 
-        dashboard visualizes bus stops, light rail stations, and transit 
-        routes to help users understand how close different communities 
-        are to reliable transit. Interactive layers, buffer zones, and charts 
-        allow users to explore walkable access to transit and compare 
-        accessibility between neighborhoods. Our goal is to highlight 
-        patterns of transit connectivity and encourage conversations 
-        about mobility, equity, and urban planning. By making transit data 
-        easier to explore, this dashboard helps commuters, residents, 
-        and policymakers better understand how transportation 
-        infrastructure shapes everyday movement in Seattle. 
+      The Seattle Public Transit Accessibility Dashboard explores how accessible public transportation is across Seattle neighborhoods. Using datasets from Seattle City GIS and King County Metro, the dashboard visualizes bus stops and light rail stations to help users understand how close different communities are to reliable transit. Interactive layers, buffer zones, and charts allow users to explore walkable access to transit and compare accessibility between areas.
+
+      Our goal is to highlight patterns of transit connectivity and encourage conversations about mobility, equity, and urban planning. By making transit data easier to explore, this dashboard helps commuters, residents, and policymakers better understand how transportation infrastructure shapes everyday movement in Seattle. 
       </p>
     </section>
 
     <section>
       <h2>Data Sources</h2>
       <p>
-        Lightrail:
-        The light rail dataset represents the link light rail stations located throughout Seattle. This dataset includes station names and geographic coordinates, allowing each station to be mapped and analyzed with the dashboard. The key fields in the dataset include the station’s name, operational status, station type, and geographic coordinates (X and Y). These attributes help identify active stations and distinguish them as part of Seattle’s high-capacity transit system. The coordinate fields were used to plot station locations on the Mapbox map, while the station name and status are displayed in interactive pop-ups. The stations also serve as anchor points for generating walking distance buffers that illustrate which neighborhoods fall within accessible distance of light rail service.
-        <br>
-        <br>
-        Transit stop:
-        The transit stop dataset represents King County Metro bus stops located throughout Seattle. This dataset includes stop identifiers, street location information, and geographic coordinates, so each stop can be mapped and analyzed within our dashboard. The key fields in this dataset are the stop ID, service status, bike rack availability, accessibility designation, route list, and geographic coordinates (X and Y). These columns help to identify active transit stops as well as provide information about the amenities and services available at each stop location.
-
-        The coordinate fields were used to plot the bus stop locations on the map, while the stop name, route list, and accessibility attributes are used to display information through interactive pop-ups for users exploring our dashboard. The dataset was cleaned to include only active stops within the Seattle jurisdiction, and unnecessary maintenance fields were removed to focus the information presented on what is important. These stops also are the center point for the walkability buffers that illustrate which areas are within convenient walking distance of public transportation.
+        The Link Light Rail Stations dataset from the City of Seattle Open Data Portal provides the locations of Link light rail stations across Seattle, including station names and geographic coordinates. These stations represent key components of Seattle’s high-capacity transit system and serve as important transit hubs connecting neighborhoods across the city. The geographic coordinates allow each station to be mapped within the dashboard and displayed with interactive pop-ups.
+        The dataset can be accessed <a href=(https://data.seattle.gov/dataset/Light-Rail-Stations/nng6-bzbm/about_data)>here.</a>
+        <br><br>
+        The King County Metro Bus Stops dataset contains point locations for bus stops across King County, including attributes such as stop ID, service status, accessibility features, and route information. For this project, the dataset was cleaned to include only active bus stops within the Seattle jurisdiction. Unnecessary maintenance and database fields were removed to simplify the dataset and improve performance in the web map. 
+        The dataset can be accessed
+        <a href=https://gis-kingcounty.opendata.arcgis.com/datasets/4af32639372044f0b3256c8d0e0f40a7_0/explore>here.</a>
+        <br><br>
+        The Seattle Neighborhoods dataset from Seattle City GIS provides the geographic boundaries of neighborhoods within Seattle. These boundaries allow the dashboard to compare transit accessibility between different parts of the city and help contextualize how transit infrastructure is distributed across neighborhoods. 
+        The dataset can be accessed
+        <a href="https://data-seattlecitygis.opendata.arcgis.com/datasets/b4a142f592e94d39a3bf787f3c112c1d_0/explore">here.</a>
+        <br><br>
+        Together, these datasets allow the dashboard to map transit infrastructure, generate walkability buffers around transit stops and stations, and explore how accessible public transportation is across Seattle neighborhoods.
 
       </p>
     </section>
 
     <section>
-      <h2>How to Use the Map</h2>
+      <h2>Methods and Analysis</h2>
       <p>
-        Use the dashboard controls to toggle transit layers and walking
-        buffers on and off. Comparing different walk times helps illustrate
-        accessibility gaps and areas where transit access may be limited.
+        Transit stop locations serve as anchor points for analyzing accessibility across Seattle neighborhoods. Using these locations, walking distance buffers were generated to represent approximate access to public transit stops. These buffers illustrate which areas fall within convenient walking distance of transit infrastructure.
+        <br><br>
+        Spatial analysis tools were used to prepare and analyze the data, including:
+        <ul>
+          <li>filtering stops to include only active locations within Seattle</li>
+          <li>cleaning the dataset by removing unnecessary attributes</li>
+          <li>generating walkability buffers around transit stops</li>
+          <li>visualizing accessibility patterns across Seattle neighborhoods</li>
+        </ul>
+        
+        <br><br>
+        Interactive map layers, charts, and pop-ups allow users to explore transit access throughout the city and better understand how transportation infrastructure is distributed.
+
       </p>
     </section>
 
     <section>
-      <h2>Why This Matters</h2>
+      <h2>Tools and Technologiess</h2>
       <p>
-        Access to reliable public transit is a key equity issue. By visualizing
-        walkable access to transit, this project highlights spatial differences
-        that can inform transportation planning and policy decisions.
+        This project was created using a combination of GIS and web mapping tools, including:
+        <ul>
+          <li>ArcGIS Pro for spatial data cleaning and analysis.</li>
+          <li>Seattle City GIS and King County GIS Open Data for transit datasets.</li>
+          <li>Mapbox for interactive web map visualization.</li>
+          <li>Visual Studio Code (VS Code) was used to develop and edit the website code that powers the dashboard and integrates the interactive map. </li>
+        </ul>
+        These tools were used to transform raw data into an interactive dashboard that communicates patterns of transit accessibility across Seattle.
       </p>
+    </section>
+    <section>
+      <h1>Project Team</h1> 
+      Naod Alemu
+      <br>
+      University of Washington
+      <br>
+      Email: nalemu13@uw.edu
+      <br><br>
+      Mila Bojanic
+      <br>
+      University of Washington
+      <br>
+      Email: milabo@uw.edu
+      <br><br>
+      Billy Le
+      <br>
+      University of Washington
+      <br>
+      Email: billyle@uw.edu
+      <br><br>
+      Daniel Villasenor
+      <br>
+      University of Washington
+      <br>
+      Email: dvilla4@uw.edu
+
     </section>
 
   </main>
