@@ -60,15 +60,15 @@ Each transit stop is assigned a score from 0 to 4 based on the availability of k
 ## Data Sources:
 
 King County Bus Network:
-https://gis-kingcounty.opendata.arcgis.com/datasets/4af32639372044f0b3256c8d0e0f40a7_0/explore 
-https://gis-kingcounty.opendata.arcgis.com/datasets/ec3ec9492c0846e8a5e93d056a8cdc4f/explore?location=47.665832%2C-122.307712%2C15
-https://data-seattlecitygis.opendata.arcgis.com/datasets/159745030bdc4276b0e9f1b20b23b46b_0/explore?location=47.619346%2C-122.326310%2C11
+I. https://gis-kingcounty.opendata.arcgis.com/datasets/4af32639372044f0b3256c8d0e0f40a7_0/explore 
+II. https://gis-kingcounty.opendata.arcgis.com/datasets/ec3ec9492c0846e8a5e93d056a8cdc4f/explore?location=47.665832%2C-122.307712%2C15
+III. https://data-seattlecitygis.opendata.arcgis.com/datasets/159745030bdc4276b0e9f1b20b23b46b_0/explore?location=47.619346%2C-122.326310%2C11
 
 Neighborhoods:
-https://data-seattlecitygis.opendata.arcgis.com/datasets/b4a142f592e94d39a3bf787f3c112c1d_0/explore?location=47.614610%2C-122.336918%2C11
+I. https://data-seattlecitygis.opendata.arcgis.com/datasets/b4a142f592e94d39a3bf787f3c112c1d_0/explore?location=47.614610%2C-122.336918%2C11
 
 Light Rail Stops and Info:
-https://data-seattlecitygis.opendata.arcgis.com/datasets/light-rail-stations-1/about
+I. https://data-seattlecitygis.opendata.arcgis.com/datasets/light-rail-stations-1/about
 
 ## Applied Libraries and Web Services
 
