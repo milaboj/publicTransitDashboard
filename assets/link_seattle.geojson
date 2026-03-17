@@ -1,0 +1,25 @@
+{
+"type": "FeatureCollection",
+"name": "link_seattle",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-15,
+"features": [
+{ "type": "Feature", "properties": { "LINK_TYPE": 3, "NAME": "Roosevelt Station", "STATION": "Roosevelt", "SEGMENT": "A", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.31585727514215, 47.676640441230859 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 3, "NAME": "U District Station", "STATION": "U District", "SEGMENT": "B", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.314231094853028, 47.660430277089162 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 3, "NAME": "University of Washington Station", "STATION": "University of Washington", "SEGMENT": "B", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.303623242309186, 47.650066216015269 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 1, "NAME": "Beacon Hill Station", "STATION": "Beacon Hill", "SEGMENT": "C", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.311717510896742, 47.579505132734276 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 1, "NAME": "Mount Baker Station", "STATION": "Mount Baker", "SEGMENT": "D", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.29764453754845, 47.576556141200037 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 7, "NAME": "Judkins Park Station", "STATION": "Judkins Park", "SEGMENT": "East Link", "STATUS": "CONST", "STATUSNOTE": "Under Construction" }, "geometry": { "type": "Point", "coordinates": [ -122.304506723287119, 47.590301001478139 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 1, "NAME": "International District Station", "STATION": "International District / Chinatown", "SEGMENT": "C", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.327938294774555, 47.598357729510433 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 1, "NAME": "Westlake Station", "STATION": "Westlake", "SEGMENT": "C", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.336693580697101, 47.611542591829519 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 1, "NAME": "University Street Station", "STATION": "University Street", "SEGMENT": "C", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.335962417664504, 47.607817828359963 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 1, "NAME": "Pioneer Square Station", "STATION": "Pioneer Square", "SEGMENT": "C", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.331157988561628, 47.602567972624932 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 1, "NAME": "Stadium Station", "STATION": "Stadium", "SEGMENT": "C", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.327090438603321, 47.59111102727897 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 1, "NAME": "SODO Station", "STATION": "SODO", "SEGMENT": "C", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.327359327826215, 47.581077266762094 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 1, "NAME": "Columbia City Station", "STATION": "Columbia City", "SEGMENT": "D", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.292689692279481, 47.559735364768855 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 1, "NAME": "Othello Station", "STATION": "Othello", "SEGMENT": "D", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.281527324774942, 47.537989416514598 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 1, "NAME": "Rainier Beach Station", "STATION": "Rainier Beach", "SEGMENT": "D", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.279328650886285, 47.522393981353027 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 3, "NAME": "Capitol Hill Station", "STATION": "Capitol Hill", "SEGMENT": "B", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.320125909545368, 47.619062800726255 ] } },
+{ "type": "Feature", "properties": { "LINK_TYPE": 3, "NAME": "Northgate Station", "STATION": "Northgate", "SEGMENT": "A", "STATUS": "COMPLETE", "STATUSNOTE": null }, "geometry": { "type": "Point", "coordinates": [ -122.328191920275145, 47.70304558271846 ] } }
+]
+}

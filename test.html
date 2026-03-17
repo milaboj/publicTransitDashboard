@@ -45,7 +45,10 @@
       color: white;
       opacity: 0.3;
     }
-
+    .mapboxgl-ctrl-bottom-left {
+        left: 540px;
+        bottom: 30px;
+    }
 
     #title {
       font-size: 25px;
@@ -115,12 +118,46 @@
       line-height: 150%;
       color: lightgray;
     }
+    
+    #walking-legend {
+        position: absolute;
+        bottom: 40px;
+        right: 20px;
+        background: #343a40;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 6px;
+        font-family: 'Titillium Web', serif;
+        font-size: 13px;
+        z-index: 1000;
+      }
+    
+      #walking-legend h5 {
+        margin: 0 0 8px 0;
+        color: orange;
+        font-size: 14px;
+      }
+    
+      .legend-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+      }
+    
+      .legend-circle {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 8px;
+        opacity: 0.8;
+      } 
   </style>
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
   <script src="js/d3.js"></script>
   <script src="js/c3.min.js"></script>
 </head>
-
+  
 <body>
   <div id="info">
     <div id="title">
@@ -176,6 +213,23 @@
   </div>
   <div id="map"></div>
   <div id="legend"></div>
+
+  <div id="walking-legend">
+    <h5>Walking Access</h5>
+    <div class="legend-item">
+      <span class="legend-circle" style="background-color: #00ff00;"></span>
+      5-min walk (~0.4 km)
+    </div>
+    <div class="legend-item">
+      <span class="legend-circle" style="background-color: #ffff00;"></span>
+      10-min walk (~0.8 km)
+    </div>
+    <div class="legend-item">
+      <span class="legend-circle" style="background-color: #ff0000;"></span>
+      15-min walk (~1.0 km)
+    </div>
+  </div>
+
   <script>
     // assign the access token
     mapboxgl.accessToken =
@@ -189,11 +243,20 @@
       minZoom: 2,
       center: [-122.4, 47.62] // starting center
     });
+    map.addControl(new mapboxgl.ScaleControl({ maxWidth: 150, unit: 'imperial' }), 'bottom-left');
+    map.addControl(new mapboxgl.NavigationControl({ showCompass: true, showZoom: false }), 'bottom-left');
     map.on("load", function () {
       map.addSource('neighborhoods', {
         type: 'geojson',
         data: 'assets/neighborhoods.geojson'
       });
+      map.addSource('selected-stop', {
+        type: 'geojson',
+        data: {
+            type: 'FeatureCollection',
+            features: []
+        }
+    });
           /*fetch('assets/busStops.geojson')
             .then(res => res.json())
             .then(data => {
@@ -258,7 +321,7 @@
 
       map.addSource('rail-stops', {
           type: 'geojson',
-          data: 'assets/link4.geojson'
+          data: 'assets/link_seattle.geojson'
       });
       map.addLayer({
         id: 'neighborhood-outline',
@@ -336,10 +399,31 @@
           source: 'buffer15',
           layout: { visibility: 'none' },
           paint: {
-              'fill-color': '#ff0000',
+              'fill-color': '#FF5F15',
               'fill-opacity': 0.4
           }
-      });
+        });
+      map.addLayer({
+            id: 'selected-stop-halo',
+            type: 'circle',
+            source: 'selected-stop',
+            paint: {
+                'circle-radius': 14,
+                'circle-color': '#ffffff',
+                'circle-opacity': 0.25
+            }
+        });
+        map.addLayer({
+            id: 'selected-stop',
+            type: 'circle',
+            source: 'selected-stop',
+            paint: {
+                'circle-radius': 7,
+                'circle-color': '#FDAE00',
+                'circle-stroke-width': 2,
+                'circle-stroke-color': '#000'
+            }
+        });
       map.on('click', 'rail-stops-layer', function(e){
 
           const station = e.features[0];
@@ -351,6 +435,11 @@
           map.getSource('buffer5').setData(buffer5);
           map.getSource('buffer10').setData(buffer10);
           map.getSource('buffer15').setData(buffer15);
+
+          map.getSource('selected-stop').setData({
+                type: 'FeatureCollection',
+                features: [station]
+            });
 
       });
       map.on('click', 'bus-stops-layer', function(e){
@@ -364,6 +453,11 @@
           map.getSource('buffer5').setData(buffer5);
           map.getSource('buffer10').setData(buffer10);
           map.getSource('buffer15').setData(buffer15);
+
+          map.getSource('selected-stop').setData({
+            type: 'FeatureCollection',
+            features: [station]
+        });
 
       });
       console.log(map.getLayer('rail-stops-layer'));
