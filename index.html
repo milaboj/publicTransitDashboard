@@ -158,6 +158,45 @@
         margin-right: 8px;
         opacity: 0.8;
       } 
+
+    #transit-index {
+        margin-top: 15px;
+        padding: 15px;
+        background: #212529;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    #transit-index h5 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        color: orange;
+    }
+
+    #transit-index ul {
+        margin: 5px 0 10px 0;
+        padding-left: 18px;
+        color: lightgray;
+        font-size: 13px;
+    }
+
+    #transit-index ul li {
+        margin-bottom: 4px;
+    }
+
+    .score-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        padding: 3px 0;
+        border-bottom: 1px solid #444;
+        color: lightgray;
+    }
+
+    .score-row span:first-child {
+        font-weight: bold;
+        color: white;
+    }
   </style>
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
   <script src="js/d3.js"></script>
@@ -215,6 +254,22 @@
   <input type="checkbox" id="walk15-toggle">
   15-minute walk
 </label>
+
+  <div id="transit-index">
+    <h5>Neighborhood Transit Quality & Access Index</h5>
+    <p style="color: lightgray; font-size: 13px; margin: 0 0 8px 0;">Index Scores:</p>
+    <ul>
+        <li>Accessibility +2</li>
+        <li>Shelter +1</li>
+        <li>Bike Racks +1</li>
+    </ul>
+    <p style="color: lightgray; font-size: 13px; margin: 0 0 6px 0;">Score out of 4:</p>
+    <div class="score-row"><span>4</span><span>Excellent</span></div>
+    <div class="score-row"><span>3</span><span>Great</span></div>
+    <div class="score-row"><span>2</span><span>Good</span></div>
+    <div class="score-row"><span>1</span><span>Okay</span></div>
+    <div class="score-row" style="border-bottom: none;"><span>0</span><span>Inadequate</span></div>
+  </div>
     <div id="footer">
 
     </div>
