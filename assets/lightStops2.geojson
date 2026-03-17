@@ -3,7 +3,7 @@
 "name": "lightStops2",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "OBJECTID_1": 1, "STATUS": "Existing / Under Construction", "NAME": "NE 145th Station", "STATION": "NE 145th" }, "geometry": { "type": "Point", "coordinates": [ -83.541073036770896, 24.729019920336384 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 1, "STATUS": "Existing / Under Construction", "NAME": "NE 145th Station", "STATION": "NE 145th" }, "geometry": { "type": "Point", "coordinates": [ -122.541073036770896, 47.729019920336384 ] } },
 { "type": "Feature", "properties": { "OBJECTID_1": 2, "STATUS": "Future", "NAME": "NE 130th Station", "STATION": "NE 130th" }, "geometry": { "type": "Point", "coordinates": [ -83.544135964430538, 24.688755061708346 ] } },
 { "type": "Feature", "properties": { "OBJECTID_1": 3, "STATUS": "Future", "NAME": "Shoreline Station", "STATION": "Shoreline" }, "geometry": { "type": "Point", "coordinates": [ -83.520470618229396, 24.82049116930807 ] } },
 { "type": "Feature", "properties": { "OBJECTID_1": 4, "STATUS": "Future", "NAME": "Mountlake Terrace Station", "STATION": "Mountlake Terrace" }, "geometry": { "type": "Point", "coordinates": [ -83.490128454329366, 24.886745624957193 ] } },
