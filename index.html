@@ -324,6 +324,13 @@
           type: 'geojson',
           data: 'assets/link_seattle.geojson'
       });
+      map.addSource('selected-stop', {
+        type: 'geojson',
+        data: {
+            type: 'FeatureCollection',
+            features: []
+        }
+    });
       map.addLayer({
         id: 'neighborhood-outline',
         type: 'line',
@@ -404,6 +411,27 @@
               'fill-opacity': 0.4
           }
       });
+      map.addLayer({
+        id: 'selected-stop-halo',
+        type: 'circle',
+        source: 'selected-stop',
+        paint: {
+            'circle-radius': 14,
+            'circle-color': '#ffffff',
+            'circle-opacity': 0.25
+        }
+    });
+    map.addLayer({
+        id: 'selected-stop',
+        type: 'circle',
+        source: 'selected-stop',
+        paint: {
+            'circle-radius': 7,
+            'circle-color': '#ffffff',
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#000'
+        }
+    });
       map.on('click', 'rail-stops-layer', function(e){
 
           const station = e.features[0];
@@ -416,6 +444,10 @@
           map.getSource('buffer10').setData(buffer10);
           map.getSource('buffer15').setData(buffer15);
 
+            map.getSource('selected-stop').setData({
+                type: 'FeatureCollection',
+                features: [station]
+            });
       });
       map.on('click', 'bus-stops-layer', function(e){
 
@@ -428,6 +460,11 @@
           map.getSource('buffer5').setData(buffer5);
           map.getSource('buffer10').setData(buffer10);
           map.getSource('buffer15').setData(buffer15);
+
+            map.getSource('selected-stop').setData({
+                type: 'FeatureCollection',
+                features: [station]
+            });
 
       });
       console.log(map.getLayer('rail-stops-layer'));

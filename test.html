@@ -257,6 +257,13 @@
             features: []
         }
     });
+    map.addSource('selected-stop', {
+        type: 'geojson',
+        data: {
+            type: 'FeatureCollection',
+            features: []
+        }
+    });
           /*fetch('assets/busStops.geojson')
             .then(res => res.json())
             .then(data => {
